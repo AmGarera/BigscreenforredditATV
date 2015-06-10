@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_blue_grey_800">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <LinearLayout
+        android:id="@+id/infosheet"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="TITLE GOES HERE"
+            android:textSize="@dimen/abc_text_size_display_3_material"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/tvPoints"
+                android:text="588 points"
+                android:padding="6dp"
+                android:textSize="@dimen/abc_text_size_display_1_material"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/tvComments"
+                android:text="588 Comments"
+                android:padding="6dp"
+                android:textSize="@dimen/abc_text_size_display_1_material"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/tvAuthor"
+                android:text="By adunham95"
+                android:padding="6dp"
+                android:textSize="@dimen/abc_text_size_display_1_material"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="asdjfjklasdjflk;ajsdl;kfjalk;sdfjkl;j"/>
+
+    </LinearLayout>
+
+</LinearLayout>

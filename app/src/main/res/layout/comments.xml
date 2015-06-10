@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <!--Insert PostHere-->
+
+    <LinearLayout
+        android:id="@+id/buttonStrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:id="@+id/butUpVote"
+            android:layout_below="@+id/textView"
+            android:padding="6dp"
+            android:text="UPVOTE"/>
+
+        <Button
+            android:id="@+id/buttonDownVote"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_toRightOf="@+id/butUpVote"
+            android:padding="6dp"
+            android:text="DOWNVOTE"/>
+
+        <Button
+            android:id="@+id/buttonSAVE"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_toRightOf="@+id/butUpVote"
+            android:padding="6dp"
+            android:text="SAVE"/>
+
+        <Button
+            android:id="@+id/buttonSHARE"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_toRightOf="@+id/butUpVote"
+            android:padding="6dp"
+            android:text="SHARE"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="259dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/buttonStrip"/>
+
+</RelativeLayout>
