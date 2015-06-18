@@ -14,10 +14,19 @@
 
 package com.example.anthony.bigscreenforreddit;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
+import net.dean.jraw.RedditClient;
+import net.dean.jraw.http.UserAgent;
+import net.dean.jraw.models.Submission;
+import net.dean.jraw.paginators.SubredditPaginator;
 
 
 /*
@@ -45,4 +54,33 @@ public class MainActivityBigScreen extends FragmentActivity {
                         , pf)
                 .commit();
     }
+
+    public void Login(View view) {
+        UserAgent myUserAgent = UserAgent.of("Android", "com.example.anthony.bigscreenforreddit", "0.1", "Atrix2noon");
+        RedditClient reddit = new RedditClient(myUserAgent);
+        for (Submission link : new SubredditPaginator(reddit).next()) {
+            System.out.printf("%s? /r/%s - %s\n", link.getScore(), link.getSubredditName(), link.getTitle());
+        }
+
+    }
+    Button button;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.login);
+        addListenerOnButton();
+    }
+
+    public void addListenerOnButton() {
+        final Context context = this;
+        button = (Button) findViewById(R.layout.btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Login.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 }

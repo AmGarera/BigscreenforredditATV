@@ -40,12 +40,9 @@
         <activity android:name=".DetailsActivity" />
         <activity android:name=".PlaybackOverlayActivity" />
         <activity android:name=".BrowseErrorActivity" />
-
-        <service
-            android:name=".WASPredditpull"
-            android:enabled="true"
-            android:exported="true" >
-        </service>
+        <activity android:label="@string/Login"
+            android:name=".Oauth"/>
+        <activity android:name=""
     </application>
 
 </manifest>

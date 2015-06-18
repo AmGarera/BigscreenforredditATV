@@ -119,7 +119,7 @@ public class MainFragment extends BrowseFragment {
         gridRowAdapter.add(getResources().getString(R.string.grid_view));
         gridRowAdapter.add(getString(R.string.error_fragment));
         gridRowAdapter.add(getResources().getString(R.string.personal_settings));
-        gridRowAdapter.add("Login");
+        gridRowAdapter.add(getString(R.string.Login));
         mRowsAdapter.add(new ListRow(gridHeader, gridRowAdapter));
 
         setAdapter(mRowsAdapter);
