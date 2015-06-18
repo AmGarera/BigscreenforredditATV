@@ -183,8 +183,8 @@ public class MainFragment extends BrowseFragment {
                         DetailsActivity.SHARED_ELEMENT_NAME).toBundle();
                 getActivity().startActivity(intent, bundle);
             } else if (item instanceof String) {
-                if (((String) item).indexOf(getString(R.string.error_fragment)) >= 0) {
-                    Intent intent = new Intent(getActivity(), BrowseErrorActivity.class);
+                if (((String) item).indexOf(getString(R.string.Login)) >= 0) {
+                    Intent intent = new Intent(getActivity(), Login.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getActivity(), ((String) item), Toast.LENGTH_SHORT)

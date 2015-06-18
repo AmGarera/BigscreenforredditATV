@@ -55,7 +55,7 @@ public class MainActivityBigScreen extends FragmentActivity {
                 .commit();
     }
 
-    public void Login(View view) {
+    public void FrontPage(View view) {
         UserAgent myUserAgent = UserAgent.of("Android", "com.example.anthony.bigscreenforreddit", "0.1", "Atrix2noon");
         RedditClient reddit = new RedditClient(myUserAgent);
         for (Submission link : new SubredditPaginator(reddit).next()) {
@@ -64,23 +64,8 @@ public class MainActivityBigScreen extends FragmentActivity {
 
     }
     Button button;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
-        addListenerOnButton();
-    }
-
-    public void addListenerOnButton() {
-        final Context context = this;
-        button = (Button) findViewById(R.layout.btn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Login.class);
+                Intent intent = new Intent(this, Login.class);
                 startActivity(intent);
             }
-        });
-    }
-
-}
+        }

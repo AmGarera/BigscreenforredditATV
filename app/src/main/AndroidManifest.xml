@@ -40,9 +40,6 @@
         <activity android:name=".DetailsActivity" />
         <activity android:name=".PlaybackOverlayActivity" />
         <activity android:name=".BrowseErrorActivity" />
-        <activity android:label="@string/Login"
-            android:name=".Oauth"/>
-        <activity android:name=""
     </application>
 
 </manifest>
