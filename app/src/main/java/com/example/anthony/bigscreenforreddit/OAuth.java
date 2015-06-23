@@ -24,9 +24,9 @@ public class OAuth extends Activity {
         private static final String REDIRECT_URL = "https://ssl.reddit.com/api/login";
 
         @Override
-        protected void onCreate(Bundle savedInstanceState) {
+        public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.login);
+            setContentView(R.layout.login2);
 
             // Create our RedditClient
             RedditClient reddit = new RedditClient(UserAgent.of("com.example.anthony.bigscreenforreddit"));
@@ -57,17 +57,23 @@ public class OAuth extends Activity {
         private static final class UserChallengeTask extends AsyncTask<String, Void, OAuthData> {
             private OAuthHelper helper;
             private Credentials creds;
+            private RedditClient reddit;
+
             public UserChallengeTask(OAuthHelper helper, Credentials creds) {
                 // <assign fields to parameters>
             }
 
             @Override
             protected OAuthData doInBackground(String... params) {
+                //is the first setting
                 try {
-                    return helper.onUserChallenge(params[0], REDIRECT_URL, creds);
-                } catch (NetworkException | OAuthException e) {
+
+                    return helper.onUserChallenge(REDIRECT_URL, creds);
+                } 
+                
+                catch (NetworkException | OAuthException e) {
                     // Handle me gracefully
-                    return (insert crap here)
+                    return null;
                 }
             }
 

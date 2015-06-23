@@ -22,6 +22,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import net.dean.jraw.RedditClient;
 import net.dean.jraw.http.UserAgent;
@@ -34,6 +35,8 @@ import net.dean.jraw.paginators.SubredditPaginator;
  */
 public class MainActivityBigScreen extends FragmentActivity {
     private static final String TAG = "bsfr::MainActivity";
+    Button b1;
+    EditText ed1,ed2;
     /**
      * Called when the activity is first created.
      */
@@ -44,6 +47,11 @@ public class MainActivityBigScreen extends FragmentActivity {
         setContentView(R.layout.activity_main_activity_big_screen);
         Log.d(TAG, "Created");
         addFragment();
+
+        b1 = (Button) findViewById(R.id.btn);
+        ed1 = (EditText) findViewById(R.id.editText2);
+        ed2 = (EditText) findViewById(R.id.editText1);
+
     }
     void addFragment(){
         Fragment pf = PostsFragment.newInstance("askreddit");
@@ -61,7 +69,6 @@ public class MainActivityBigScreen extends FragmentActivity {
         for (Submission link : new SubredditPaginator(reddit).next()) {
             System.out.printf("%s? /r/%s - %s\n", link.getScore(), link.getSubredditName(), link.getTitle());
         }
-
     }
     Button button;
             public void onClick(View v) {
@@ -69,3 +76,4 @@ public class MainActivityBigScreen extends FragmentActivity {
                 startActivity(intent);
             }
         }
+

@@ -33,6 +33,7 @@
     <string name="user">Title</string>
     <string name="repo">Post</string>
     <string name="Repo">Comments</string>
+<string name="title"> </string>
     <!-- Error messages -->
     <string name="video_error_media_load_timeout">Media loading timed out</string>
     <string name="video_error_server_inaccessible">Media server was not reachable</string>

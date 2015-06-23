@@ -38,6 +38,6 @@ dependencies {
     compile 'com.android.support:leanback-v17:22.1.1'
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.orhanobut:wasp:1.9'
     compile 'net.dean.jraw:JRAW:0.7.1'
+    compile 'com.google.code.gson:gson:2.3.1'
 }
