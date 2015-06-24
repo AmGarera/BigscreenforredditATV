@@ -137,7 +137,7 @@ public class MainFragment extends BrowseFragment {
 
         ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
 
-        CardPresenter bigCardPresentor = new CardPresenter(CARD_WIDTH_IN_DP, CARD_HEIGHT_IN_DP);
+        CardPresenter bigCardPresentor = new CardPresenter(CARD_WIDTH_IN_DP,CARD_HEIGHT_IN_DP);
         CardPresenter smallCardPresentor = new CardPresenter();
 
 
@@ -166,9 +166,9 @@ public class MainFragment extends BrowseFragment {
         setHeadersTransitionOnBackEnabled(true);
 
         // set fastLane (or headers) background color
-        setBrandColor(getResources().getColor(R.color.fastlane_background));
+        setBrandColor(getResources().getColor(R.color.accent_material_dark));
         // set search icon color
-        setSearchAffordanceColor(getResources().getColor(R.color.search_opaque));
+        setSearchAffordanceColor(getResources().getColor(R.color.accent_material_light));
     }
 
     private void setupEventListeners() {
