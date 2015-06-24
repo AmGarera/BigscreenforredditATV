@@ -44,6 +44,7 @@ public class PostInfo implements Serializable {
     private String videoUrl;
     private String studio;
     private String category;
+    private String subRedditName;
 
     public PostInfo() {
     }
@@ -88,6 +89,14 @@ public class PostInfo implements Serializable {
         this.studio = studio;
     }
 
+    public String getSubRedditName() {
+        return subRedditName;
+    }
+
+    public void setSubRedditName(String subRedditName) {
+        this.subRedditName = subRedditName;
+    }
+
     public String getVideoUrl() {
         return videoUrl;
     }
@@ -129,6 +138,8 @@ public class PostInfo implements Serializable {
             return null;
         }
     }
+
+    public String
 
     public URI getCardImageURI() {
         try {

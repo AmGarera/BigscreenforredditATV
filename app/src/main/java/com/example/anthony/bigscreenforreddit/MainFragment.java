@@ -46,6 +46,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anthony.bigscreenforreddit.PostInfo;
+import com.example.anthony.bigscreenforreddit.PostList;
+import com.example.anthony.bigscreenforreddit.PostStuff;
+
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -53,11 +57,14 @@ import com.squareup.picasso.Target;
 public class MainFragment extends BrowseFragment {
     private static final String TAG = "MainFragment";
 
+    private static final int CARD_WIDTH_IN_DP = 260;
+    private static final int CARD_HEIGHT_IN_DP = 150;
     private static final int BACKGROUND_UPDATE_DELAY = 300;
     private static final int GRID_ITEM_WIDTH = 200;
     private static final int GRID_ITEM_HEIGHT = 200;
     private static final int NUM_ROWS = 6;
     private static final int NUM_COLS = 15;
+    private static final int SUBREDDIT_ROW = 1;
 
     private ArrayObjectAdapter mRowsAdapter;
     private Drawable mDefaultBackground;
@@ -125,6 +132,18 @@ public class MainFragment extends BrowseFragment {
         setAdapter(mRowsAdapter);
 
     }
+
+    @Override public void showMainInformation(List<PostInfo> subRedditName){
+
+        ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
+
+        CardPresenter bigCardPresentor = new CardPresenter(CARD_WIDTH_IN_DP, CARD_HEIGHT_IN_DP);
+        CardPresenter smallCardPresentor = new CardPresenter();
+
+
+        addCardinfoElementsToRowAdapter(R.string.subReddit_name, subRedditName, rowsAdapter, smallCardPresentor, SUBREDDIT_ROW);
+
+    };
 
     private void prepareBackgroundManager() {
 

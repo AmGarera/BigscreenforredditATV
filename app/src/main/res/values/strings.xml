@@ -33,7 +33,13 @@
     <string name="user">Title</string>
     <string name="repo">Post</string>
     <string name="Repo">Comments</string>
-<string name="title"> </string>
+    <string name="title"> </string>
+
+    <!-- Reddit Strings -->
+    <string name="subReddit_name">subreddit</string>
+    <string name="postName">post</string>
+
+
     <!-- Error messages -->
     <string name="video_error_media_load_timeout">Media loading timed out</string>
     <string name="video_error_server_inaccessible">Media server was not reachable</string>
@@ -41,4 +47,7 @@
     <string name="error_fragment_message">An error occurred</string>
     <string name="dismiss_error">Dismiss</string>
     <string name="oops">Oops</string>
+
+
+
 </resources>
