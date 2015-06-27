@@ -132,6 +132,35 @@ public class MainFragment extends BrowseFragment {
         setAdapter(mRowsAdapter);
 
     }
+    private void addCardInfoElementsToRowsAdapter(int title, List<CardInfo> elements,
+                                                  ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+        for (Object element : elements) {
+            listRowAdapter.add(element);
+        }
+        HeaderItem header = new HeaderItem(id, getString(title), null);
+        rowsAdapter.add(new ListRow(header, listRowAdapter));
+    }
+
+    private void addImageInfoElementsToRowAdapter(int title, List<ImageInfo> elements,
+                                                  ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+        for (Object element : elements) {
+            listRowAdapter.add(element);
+        }
+        HeaderItem header = new HeaderItem(id, getString(title), null);
+        rowsAdapter.add(new ListRow(header, listRowAdapter));
+    }
+
+    private void addIconInfoElementsToRowAdapter(String title, List<IconInfo> preferences,
+                                                 ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+        for (IconInfo iconInfo : preferences) {
+            listRowAdapter.add(iconInfo);
+        }
+        rowsAdapter.add(new ListRow(new HeaderItem(id, title, ""), listRowAdapter));
+    }
+
 
     @Override public void showMainInformation(List<PostInfo> subRedditName){
 
@@ -141,7 +170,7 @@ public class MainFragment extends BrowseFragment {
         CardPresenter smallCardPresentor = new CardPresenter();
 
 
-        addCardinfoElementsToRowAdapter(R.string.subReddit_name, subRedditName, rowsAdapter, smallCardPresentor, SUBREDDIT_ROW);
+        addCardInfoElementsToRowsAdapter(R.string.subReddit_name, subRedditName, rowsAdapter, smallCardPresentor, SUBREDDIT_ROW);
 
     };
 
