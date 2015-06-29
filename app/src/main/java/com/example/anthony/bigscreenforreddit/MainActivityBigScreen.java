@@ -70,9 +70,8 @@ public class MainActivityBigScreen extends FragmentActivity {
             System.out.printf("%s? /r/%s - %s\n", link.getScore(), link.getSubredditName(), link.getTitle());
         }
     }
-    Button button;
             public void onClick(View v) {
-                Intent intent = new Intent(this, Login.class);
+                Intent intent = new Intent(this, OAuth.class);
                 startActivity(intent);
             }
         }

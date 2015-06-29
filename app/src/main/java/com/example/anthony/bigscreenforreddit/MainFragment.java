@@ -132,47 +132,47 @@ public class MainFragment extends BrowseFragment {
         setAdapter(mRowsAdapter);
 
     }
-    private void addCardInfoElementsToRowsAdapter(int title, List<CardInfo> elements,
-                                                  ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
-        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
-        for (Object element : elements) {
-            listRowAdapter.add(element);
-        }
-        HeaderItem header = new HeaderItem(id, getString(title), null);
-        rowsAdapter.add(new ListRow(header, listRowAdapter));
-    }
-
-    private void addImageInfoElementsToRowAdapter(int title, List<ImageInfo> elements,
-                                                  ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
-        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
-        for (Object element : elements) {
-            listRowAdapter.add(element);
-        }
-        HeaderItem header = new HeaderItem(id, getString(title), null);
-        rowsAdapter.add(new ListRow(header, listRowAdapter));
-    }
-
-    private void addIconInfoElementsToRowAdapter(String title, List<IconInfo> preferences,
-                                                 ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
-        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
-        for (IconInfo iconInfo : preferences) {
-            listRowAdapter.add(iconInfo);
-        }
-        rowsAdapter.add(new ListRow(new HeaderItem(id, title, ""), listRowAdapter));
-    }
-
-
-    @Override public void showMainInformation(List<PostInfo> subRedditName){
-
-        ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
-
-        CardPresenter bigCardPresentor = new CardPresenter(CARD_WIDTH_IN_DP,CARD_HEIGHT_IN_DP);
-        CardPresenter smallCardPresentor = new CardPresenter();
-
-
-        addCardInfoElementsToRowsAdapter(R.string.subReddit_name, subRedditName, rowsAdapter, smallCardPresentor, SUBREDDIT_ROW);
-
-    };
+//    private void addCardInfoElementsToRowsAdapter(int title, List<CardInfo> elements,
+//                                                  ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+//        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+//        for (Object element : elements) {
+//            listRowAdapter.add(element);
+//        }
+//        HeaderItem header = new HeaderItem(id, getString(title), null);
+//        rowsAdapter.add(new ListRow(header, listRowAdapter));
+//    }
+//
+//    private void addImageInfoElementsToRowAdapter(int title, List<ImageInfo> elements,
+//                                                  ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+//        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+//        for (Object element : elements) {
+//            listRowAdapter.add(element);
+//        }
+//        HeaderItem header = new HeaderItem(id, getString(title), null);
+//        rowsAdapter.add(new ListRow(header, listRowAdapter));
+//    }
+//
+//    private void addIconInfoElementsToRowAdapter(String title, List<IconInfo> preferences,
+//                                                 ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+//        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+//        for (IconInfo iconInfo : preferences) {
+//            listRowAdapter.add(iconInfo);
+//        }
+//        rowsAdapter.add(new ListRow(new HeaderItem(id, title, ""), listRowAdapter));
+//    }
+//
+//
+//    @Override public void showMainInformation(List<PostInfo> subRedditName){
+//
+//        ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
+//
+//        CardPresenter bigCardPresentor = new CardPresenter(CARD_WIDTH_IN_DP,CARD_HEIGHT_IN_DP);
+//        CardPresenter smallCardPresentor = new CardPresenter();
+//
+//
+//        addCardInfoElementsToRowsAdapter(R.string.subReddit_name, subRedditName, rowsAdapter, smallCardPresentor, SUBREDDIT_ROW);
+//
+//    };
 
     private void prepareBackgroundManager() {
 
@@ -232,8 +232,8 @@ public class MainFragment extends BrowseFragment {
                 getActivity().startActivity(intent, bundle);
             } else if (item instanceof String) {
                 if (((String) item).indexOf(getString(R.string.Login)) >= 0) {
-                    Intent intent = new Intent(getActivity(), Login2.class);
-                    startActivity(intent);
+                    Intent intent = new Intent(getActivity(), OAuth.class);
+                    getActivity().startActivity(intent);
                 } else {
                     Toast.makeText(getActivity(), ((String) item), Toast.LENGTH_SHORT)
                             .show();

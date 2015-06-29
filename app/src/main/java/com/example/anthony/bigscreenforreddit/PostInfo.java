@@ -139,7 +139,6 @@ public class PostInfo implements Serializable {
         }
     }
 
-    public String
 
     public URI getCardImageURI() {
         try {

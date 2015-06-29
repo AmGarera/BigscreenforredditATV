@@ -38,7 +38,8 @@
     <!-- Reddit Strings -->
     <string name="subReddit_name">subreddit</string>
     <string name="postName">post</string>
-
+<string name="BigScreen">1g_2vCWlwRS_og</string>
+<string name="redirectUrl">http://127.0.0.1:3000/users/auth/reddit/callback</string>
 
     <!-- Error messages -->
     <string name="video_error_media_load_timeout">Media loading timed out</string>
