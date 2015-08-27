@@ -40,8 +40,6 @@
         <activity android:name=".DetailsActivity" />
         <activity android:name=".PlaybackOverlayActivity" />
         <activity android:name=".BrowseErrorActivity" />
-        <activity android:name=".OAuth"
-                  android:label="@string/Login"/>
         <activity android:name=".Login2"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 

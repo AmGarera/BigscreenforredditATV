@@ -29,6 +29,8 @@ import com.squareup.picasso.Target;
 
 import java.net.URI;
 
+import com.example.anthony.bigscreenforreddit.Models.RedditLink;
+
 /*
  * A CardPresenter is used to generate Views and bind Objects to them on demand. 
  * It contains an Image CardView

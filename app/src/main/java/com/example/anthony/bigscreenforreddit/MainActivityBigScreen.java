@@ -24,11 +24,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import net.dean.jraw.RedditClient;
-import net.dean.jraw.http.UserAgent;
-import net.dean.jraw.models.Submission;
-import net.dean.jraw.paginators.SubredditPaginator;
-
 
 /*
  * MainActivity class that loads MainFragment
@@ -47,7 +42,6 @@ public class MainActivityBigScreen extends FragmentActivity {
         setContentView(R.layout.activity_main_activity_big_screen);
         Log.d(TAG, "Created");
         addFragment();
-
         b1 = (Button) findViewById(R.id.btn);
         ed1 = (EditText) findViewById(R.id.editText2);
         ed2 = (EditText) findViewById(R.id.editText1);
@@ -63,16 +57,6 @@ public class MainActivityBigScreen extends FragmentActivity {
                 .commit();
     }
 
-    public void FrontPage(View view) {
-        UserAgent myUserAgent = UserAgent.of("Android", "com.example.anthony.bigscreenforreddit", "0.1", "Atrix2noon");
-        RedditClient reddit = new RedditClient(myUserAgent);
-        for (Submission link : new SubredditPaginator(reddit).next()) {
-            System.out.printf("%s? /r/%s - %s\n", link.getScore(), link.getSubredditName(), link.getTitle());
-        }
-    }
-            public void onClick(View v) {
-                Intent intent = new Intent(this, OAuth.class);
-                startActivity(intent);
-            }
+
         }
 

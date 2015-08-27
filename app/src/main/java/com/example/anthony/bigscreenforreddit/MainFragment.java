@@ -46,6 +46,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anthony.bigscreenforreddit.Models.RedditListing;
+import com.example.anthony.bigscreenforreddit.Models.RedditResponse;
 import com.example.anthony.bigscreenforreddit.PostInfo;
 import com.example.anthony.bigscreenforreddit.PostList;
 import com.example.anthony.bigscreenforreddit.PostStuff;
@@ -62,7 +64,7 @@ public class MainFragment extends BrowseFragment {
     private static final int BACKGROUND_UPDATE_DELAY = 300;
     private static final int GRID_ITEM_WIDTH = 200;
     private static final int GRID_ITEM_HEIGHT = 200;
-    private static final int NUM_ROWS = 6;
+    private static final int NUM_ROWS = 50;
     private static final int NUM_COLS = 15;
     private static final int SUBREDDIT_ROW = 1;
 
@@ -100,7 +102,8 @@ public class MainFragment extends BrowseFragment {
     }
 
     private void loadRows() {
-        List<PostInfo> list = PostList.setupReddit();
+        //List<PostInfo> list = PostList.setupReddit();
+        List<RedditResponse<RedditListing>> list;
         mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
         mCardPresenter = new CardPresenter();
 
@@ -114,7 +117,7 @@ public class MainFragment extends BrowseFragment {
                 listRowAdapter.add(list.get(j % 5));
             }
 //            HeaderItem header = new HeaderItem(i, MovieList.MOVIE_CATEGORY[i], null);
-            HeaderItem header = new HeaderItem(i, MovieList.MOVIE_CATEGORY[i]);
+            HeaderItem header = new HeaderItem(i, Constants.Reddit.DEFAULT_SUBREDDITS[i]);
             mRowsAdapter.add(new ListRow(header, listRowAdapter));
         }
 
@@ -205,7 +208,7 @@ public class MainFragment extends BrowseFragment {
 
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Implement your own in-app search", Toast.LENGTH_LONG)
+                Toast.makeText(getActivity(), "Fuck searching", Toast.LENGTH_LONG)
                         .show();
             }
         });
@@ -231,13 +234,13 @@ public class MainFragment extends BrowseFragment {
                         DetailsActivity.SHARED_ELEMENT_NAME).toBundle();
                 getActivity().startActivity(intent, bundle);
             } else if (item instanceof String) {
-                if (((String) item).indexOf(getString(R.string.Login)) >= 0) {
-                    Intent intent = new Intent(getActivity(), OAuth.class);
-                    getActivity().startActivity(intent);
-                } else {
-                    Toast.makeText(getActivity(), ((String) item), Toast.LENGTH_SHORT)
-                            .show();
-                }
+//                if (((String) item).indexOf(getString(R.string.Login)) >= 0) {
+//                    Intent intent = new Intent(getActivity(), OAuth.class);
+//                    getActivity().startActivity(intent);
+//                } else {
+//                    Toast.makeText(getActivity(), ((String) item), Toast.LENGTH_SHORT)
+//                            .show();
+//                }
             }
         }
     }
