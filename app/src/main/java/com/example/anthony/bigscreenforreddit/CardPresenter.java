@@ -43,7 +43,7 @@ public class CardPresenter extends Presenter {
     private static int CARD_HEIGHT = 176;
 
     static class ViewHolder extends Presenter.ViewHolder {
-        private PostInfo mMovie;
+        private RedditLink mMovie;
         private ImageCardView mCardView;
         private Drawable mDefaultCardImage;
         private PicassoImageCardViewTarget mImageCardViewTarget;
@@ -55,11 +55,11 @@ public class CardPresenter extends Presenter {
             mDefaultCardImage = mContext.getResources().getDrawable(R.drawable.movie);
         }
 
-        public void setMovie(PostInfo m) {
+        public void setMovie(RedditLink m) {
             mMovie = m;
         }
 
-        public PostInfo getMovie() {
+        public RedditLink getMovie() {
             return mMovie;
         }
 
@@ -101,7 +101,7 @@ public class CardPresenter extends Presenter {
             ((ViewHolder) viewHolder).mCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
             ((ViewHolder) viewHolder).updateCardViewImage(movie.getCardImageURI());
         }*/
-        PostInfo movie = (PostInfo) item;
+        /*PostInfo movie = (PostInfo) item;
         ((ViewHolder) viewHolder).setMovie(movie);
 
         Log.d(TAG, "onBindViewHolder");
@@ -110,7 +110,18 @@ public class CardPresenter extends Presenter {
             ((ViewHolder) viewHolder).mCardView.setContentText(movie.getStudio());
             ((ViewHolder) viewHolder).mCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
             ((ViewHolder) viewHolder).updateCardViewImage(movie.getCardImageURI());
+        }*/
+
+        RedditLink redditLink = (RedditLink) item;
+        ((ViewHolder) viewHolder).setMovie(redditLink);
+
+        Log.d(TAG, "onBindViewHolder");
+        if (redditLink.getThumbnail() != null) {
+            ((ViewHolder) viewHolder).mCardView.setTitleText(redditLink.getTitle());
+            ((ViewHolder) viewHolder).mCardView.setContentText(redditLink.getAuthor());
+            ((ViewHolder) viewHolder).mCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
         }
+
     }
 
     @Override

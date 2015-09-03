@@ -15,7 +15,7 @@ public class RedditLink extends RedditSubmission {
     private String permalink;
     private boolean stickied;
     private String url;
-    private String title;
+    public String title;
     private int num_comments;
     private boolean visited;
 
@@ -77,6 +77,15 @@ public class RedditLink extends RedditSubmission {
 
     public boolean isVisited() {
         return visited;
+    }
+
+    @Override
+    public String toString(){
+        return "redditlink{" +
+                "title=" + title +
+                "subreddit=" + subreddit + '\'' +
+                "thumbnail=" + thumbnail + '\'' +
+                '}';
     }
 
 }

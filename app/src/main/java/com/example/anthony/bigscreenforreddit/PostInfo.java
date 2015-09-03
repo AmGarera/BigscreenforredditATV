@@ -25,6 +25,8 @@ import java.net.URISyntaxException;
 
 import android.util.Log;
 
+import com.example.anthony.bigscreenforreddit.Models.RedditLink;
+
 import java.io.Serializable;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -33,7 +35,7 @@ import java.net.URISyntaxException;
  * Movie class represents video entity with title, description, image thumbs and video url.
  *
  */
-public class PostInfo implements Serializable {
+public class PostInfo extends RedditLink implements Serializable {
     static final long serialVersionUID = 727566175075960653L;
     private static long count = 0;
     private long id;
@@ -57,9 +59,9 @@ public class PostInfo implements Serializable {
         count++;
     }
 
-    public long getId() {
+    /*public long getId() {
         return id;
-    }
+    }*/
 
     public void setId(long id) {
         this.id = id;

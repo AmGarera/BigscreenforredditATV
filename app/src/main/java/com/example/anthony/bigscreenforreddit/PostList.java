@@ -1,5 +1,7 @@
 package com.example.anthony.bigscreenforreddit;
 
+import com.example.anthony.bigscreenforreddit.Models.RedditLink;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +23,7 @@ public final class PostList {
 
     public static List<PostInfo> setupReddit() {
         list = new ArrayList<PostInfo>();
-        String title[] = {
-                "AskReddit",
-                "Reddit",
-                "Reddit2",
-                "This is a link",
-                "Im ANGRY, Code...."
+        String title[] = {RedditLink.title
         };
 
         String description = "Fusce id nisi turpis. Praesent viverra bibendum semper. "

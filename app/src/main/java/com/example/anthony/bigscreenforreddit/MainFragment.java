@@ -47,11 +47,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anthony.bigscreenforreddit.Models.RedditListing;
+import com.example.anthony.bigscreenforreddit.Models.RedditObject;
+import com.example.anthony.bigscreenforreddit.Models.RedditObjectWrapper;
 import com.example.anthony.bigscreenforreddit.Models.RedditResponse;
 import com.example.anthony.bigscreenforreddit.PostInfo;
 import com.example.anthony.bigscreenforreddit.PostList;
 import com.example.anthony.bigscreenforreddit.PostStuff;
 
+import com.example.anthony.bigscreenforreddit.UI.LinkAdapter;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -62,7 +65,7 @@ public class MainFragment extends BrowseFragment {
     private static final int CARD_WIDTH_IN_DP = 260;
     private static final int CARD_HEIGHT_IN_DP = 150;
     private static final int BACKGROUND_UPDATE_DELAY = 300;
-    private static final int GRID_ITEM_WIDTH = 200;
+    private static final int GRID_ITEM_WIDTH = 300;
     private static final int GRID_ITEM_HEIGHT = 200;
     private static final int NUM_ROWS = 50;
     private static final int NUM_COLS = 15;
@@ -101,9 +104,61 @@ public class MainFragment extends BrowseFragment {
         }
     }
 
+    private void setupUIElements() {
+        // setBadgeDrawable(getActivity().getResources().getDrawable(
+        // R.drawable.videos_by_google_banner));
+        setTitle(getString(R.string.browse_title)); // Badge, when set, takes precedent
+        // over title
+        setHeadersState(HEADERS_ENABLED);
+        setHeadersTransitionOnBackEnabled(true);
+
+        // set fastLane (or headers) background color
+        setBrandColor(getResources().getColor(R.color.accent_material_dark));
+        // set search icon color
+        setSearchAffordanceColor(getResources().getColor(R.color.accent_material_light));
+    }
+
     private void loadRows() {
+
+        /*mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
+
+        *//* GridItemPresenter *//*
+        HeaderItem gridItemPresenterHeader = new HeaderItem(0, "GridItemPresenter");
+
+        GridItemPresenter mGridPresenter = new GridItemPresenter();
+        ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(mGridPresenter);
+        gridRowAdapter.add("ITEM 1");
+        gridRowAdapter.add("ITEM 2");
+        gridRowAdapter.add("ITEM 3");
+        mRowsAdapter.add(new ListRow(gridItemPresenterHeader, gridRowAdapter));
+
+        *//* CardPresenter *//*
+        HeaderItem cardPresenterHeader = new HeaderItem(1, "CardPresenter");
+        CardPresenter cardPresenter = new CardPresenter();
+        ArrayObjectAdapter cardRowAdapter = new ArrayObjectAdapter(cardPresenter);
+
+        for(int i=0; i<10; i++) {
+            Movie movie = new Movie();
+            if(i%3 == 0) {
+                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+            } else if (i%3 == 1) {
+                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02630.jpg");
+            } else {
+                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02529.jpg");
+            }
+            movie.setTitle("title" + i);
+            movie.setStudio("studio" + i);
+            cardRowAdapter.add(movie);
+
+        mRowsAdapter.add(new ListRow(cardPresenterHeader, cardRowAdapter));
+
+        *//* Set *//*
+        setAdapter(mRowsAdapter); }*/
+
+
+
         //List<PostInfo> list = PostList.setupReddit();
-        List<RedditResponse<RedditListing>> list;
+        List<RedditObject> list = RedditObjectWrapper.class;
         mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
         mCardPresenter = new CardPresenter();
 
@@ -189,19 +244,7 @@ public class MainFragment extends BrowseFragment {
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(mMetrics);
     }
 
-    private void setupUIElements() {
-        // setBadgeDrawable(getActivity().getResources().getDrawable(
-        // R.drawable.videos_by_google_banner));
-        setTitle(getString(R.string.browse_title)); // Badge, when set, takes precedent
-        // over title
-        setHeadersState(HEADERS_ENABLED);
-        setHeadersTransitionOnBackEnabled(true);
 
-        // set fastLane (or headers) background color
-        setBrandColor(getResources().getColor(R.color.accent_material_dark));
-        // set search icon color
-        setSearchAffordanceColor(getResources().getColor(R.color.accent_material_light));
-    }
 
     private void setupEventListeners() {
         setOnSearchClickedListener(new View.OnClickListener() {
